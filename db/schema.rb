@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080705043830) do
+ActiveRecord::Schema.define(:version => 20081230014455) do
 
   create_table "languages", :force => true do |t|
     t.string   "name"
     t.string   "slug"
-    t.integer  "snippets_count", :limit => 11, :default => 0
+    t.integer  "snippets_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -23,23 +23,27 @@ ActiveRecord::Schema.define(:version => 20080705043830) do
     t.text     "body"
     t.text     "formatted_body"
     t.text     "formatted_preview"
-    t.integer  "language_id",       :limit => 11
-    t.string   "theme",                           :default => "clean"
-    t.integer  "taggings_count",    :limit => 11, :default => 0
+    t.integer  "language_id"
+    t.string   "theme",             :default => "clean"
+    t.integer  "taggings_count",    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "author"
+    t.string   "email"
+    t.string   "url"
+    t.string   "spam_status"
   end
 
   create_table "taggings", :force => true do |t|
-    t.integer  "tag_id",     :limit => 11
-    t.integer  "snippet_id", :limit => 11
+    t.integer  "tag_id"
+    t.integer  "snippet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.integer  "taggings_count", :limit => 11, :default => 0
+    t.integer  "taggings_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
